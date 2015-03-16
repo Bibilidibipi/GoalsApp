@@ -42,7 +42,6 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 3.0'
-  gem 'capybara'
 end
 
 group :development, :test do
@@ -50,6 +49,7 @@ group :development, :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'factory_girl_rails'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

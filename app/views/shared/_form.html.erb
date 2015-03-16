@@ -1,0 +1,10 @@
+<form action="<%= action %>" method="post">
+  <%= render 'shared/csrf_token' %>
+  <label for="user_username">username</label>
+  <input type="text" name="user[username]" value="<%= user.username %>" id="user_username">
+  <br>
+  <label for="user_password">password</label>
+  <input type="password" name="user[password]" id="user_password">
+  <br>
+  <input type="submit" value="<%= title %>">
+</form>
