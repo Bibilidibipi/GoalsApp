@@ -9,14 +9,14 @@
 <body>
 
 <% if logged_in? %>
-  <%= current_user.username %>
+  <%= current_user.username %><br>
 <% else %>
-  <%= link_to " To Log In", new_session_url %>
-  <%= link_to "To Sign Up", new_user_url %>
+  <%= link_to " To Log In", new_session_url %><br>
+  <%= link_to "To Sign Up", new_user_url %><br>
 <% end %>
 
 <% flash[:errors] && flash[:errors].each do |error| %>
-  <%= error %>
+  <%= error %><br>
 <% end %>
 
 <%= yield %>

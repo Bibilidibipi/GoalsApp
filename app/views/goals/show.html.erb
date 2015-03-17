@@ -1,0 +1,6 @@
+<%= @goal.body %> <br>
+<%= "COMPLETED" if @goal.completed %> <br>
+<%= link_to "Back to #{@user.username}", user_url(@user) %> <br>
+<%= link_to "Add Comment", new_goal_comment_url(@goal) %><br>
+
+<%= render @comments %>

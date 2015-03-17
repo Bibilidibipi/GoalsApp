@@ -1,0 +1,34 @@
+<form action="<%= user_goals_url(@user) %>" method="post">
+  <%= render 'shared/csrf_token' %>
+
+  <label for="body">Describe your goal:</label>
+  <input id="body" type="text" name="goal[body]" value="<%= @goal.body %>"><br>
+
+  <p>Choose Public/Private <br>
+  <input id="public"
+         <%= 'checked' if @goal.public %>
+         type="radio"
+         name="goal[public]"
+         value="true">Public<br>
+  <input id="private"
+         <%= 'checked' if @goal.public == false %>
+         type="radio"
+         name="goal[public]"
+         value="false">Private<br>
+  </p>
+
+  <p>Choose Completed/Uncompleted <br>
+  <input id="completed"
+         <%= 'checked' if @goal.completed %>
+         type="radio"
+         name="goal[completed]"
+         value="true">Completed<br>
+  <input id="uncompleted"
+         <%= 'checked' if @goal.completed == false %>
+         type="radio"
+         name="goal[completed]"
+         value="false">Uncompleted<br>
+  </p>
+
+  <input type="submit" value="Create Goal">
+</form>

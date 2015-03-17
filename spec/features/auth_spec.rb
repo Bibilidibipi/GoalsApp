@@ -35,8 +35,10 @@ feature "login user" do
   end
 
   feature "logging in user" do
+
+    let(:user) { FactoryGirl.create(:user) }
+
     before(:each) do
-      user = FactoryGirl.create(:user)
       visit new_session_url
       fill_in 'username', with: user.username
       fill_in 'password', with: user.password
@@ -48,19 +50,21 @@ feature "login user" do
     end
 
     scenario "shows username on page after signup" do
-      expect(page).to have_content "testing_username"
+      expect(page).to have_content user.username
     end
   end
 end
 
 feature "logout user" do
+
+  let(:user) { FactoryGirl.create(:user) }
+
   before(:each) do
-    user = FactoryGirl.create(:user)
     visit user_url(user)
   end
 
   scenario "user does not start out logged in" do
-    expect(page).to not_have_content user.username
+    expect(page).to_not have_content user.username
   end
 
   scenario "user is redirected to login page" do

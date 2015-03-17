@@ -6,8 +6,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       login!(@user)
+      @current_user = @user
       redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
@@ -17,8 +19,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @goals = @user.goals
+    @comments = @user.comments
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:username, :password)

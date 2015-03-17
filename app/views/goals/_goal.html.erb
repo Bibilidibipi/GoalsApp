@@ -1,0 +1,3 @@
+<% if goal.public || current_user.id == goal.user_id %>
+<%= link_to goal.body, goal_url(goal) %><br>
+<% end %>
